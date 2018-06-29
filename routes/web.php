@@ -45,4 +45,9 @@ Route::get('/', function () {
 
 // Route::get('helloo/{id?}/{pass?}', 'helloController@index');
 Route::get('hello','helloController@index');
-Route::get('hello/other','helloController@other');
+Route::post('hello','helloController@post');
+
+// Route::get('helloo', function () {
+//     return view('hello.index');
+// });
+// Route::get('hello/other','helloController@other');
