@@ -16,15 +16,16 @@ h1{
 </head>
 <body>
   <h1>Blade/Index</h1>
-  @if ($msg != '')
-  <p>こんにちは、{{$msg}}さん</p>
-  @else
-  <p>なんかかいてください</p>
-  @endif
-  <form method="POST" action="/mylala/public/hello">
+  <p>$#064;foreach directive example</p>
+  <ol>
+    @foreach(data as $item)
+    <li>{{$item}}
+    @endforeach
+    </ol>
+  <!-- <form method="POST" action="/mylala/public/hello">
     {{csrf_field()}}
     <input type="text" name="msg">
     <input type="submit">
-  </form>
+  </form> -->
 </body>
 </html>
