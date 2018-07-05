@@ -9,16 +9,9 @@
 
 @section('content')
   <p>this is the article contents</p>
-  <p>written if nesessary</p>
-  @component('components.message')
-    @slot('msg_title')
-    CAUTION!
-    @endslot
+  <p>Controller value<br>'message' = {{$message}}</p>
+  <p>Controller value<br>'view_message' = {{$view_message}}</p> 
 
-    @slot('msg_content')
-    this is for show
-    @endslot
-  @endcomponent
 @endsection
 
 @section('footer')
