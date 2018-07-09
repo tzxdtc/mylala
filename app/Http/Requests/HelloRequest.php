@@ -35,4 +35,13 @@ class HelloRequest extends FormRequest
             //
         ];
     }
+
+    public function messages(){
+      return [
+        'name.required' => '请输入名字',
+        'mail.email' =>'请输入邮箱地址',
+        'age.numeric' => '请输入数字',
+        'age.between' => '请输入0-150',
+      ];
+    }
 }
