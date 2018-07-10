@@ -23,27 +23,37 @@ class helloController extends Controller
       return view('hello.index',['msg'=>$msg,]);
 }
 
-    public function post(Request $request){
-      $rules = [
-        'name' => 'required',
-        'mail' =>'email',
-        'age' => 'numeric|between:0,150',
-      ];
-      $messages = [
-        'name.required' => '请输入名字',
-        'mail.email' =>'请输入邮箱地址',
-        'age.numeric' => '请输入数字',
-        'age.between' => '请输入0-150',
-      ];
-      $validator = Validator::make($request->all(),$rules,$messages);
-      if ($validator->fails()){
-        return redirect('/hello')
-        ->withErrors($validator)
-        ->withInput();
-      }
-      return view('hello.index',['msg'=>'this is right type']);
-    }
     // public function post(Request $request){
-    //   return view('hello.index', ['msg'=>$request->msg]);
+    //   $rules = [
+    //     'name' => 'required',
+    //     'mail' =>'email',
+    //     'age' => 'numeric',
+    //   ];
+    //   $messages = [
+    //     'name.required' => '请输入名字',
+    //     'mail.email' =>'请输入邮箱地址',
+    //     'age.numeric' => '请输入数字',
+    //     'age.min' => '请输入0以上',
+    //     'age.max' => '请输入200以下',
+    //   ];
+    //   $validator = Validator::make($request->all(),$rules,$messages);
+    //
+    //   $validator->sometimes('age','min:0',function($input){
+    //     return !is_int($input->age);
+    //   });
+    //
+    //   $validator->sometimes('age','max:200',function($input){
+    //     return !is_int($input->age);
+    //   });
+    //
+    //   if ($validator->fails()){
+    //     return redirect('/hello')
+    //     ->withErrors($validator)
+    //     ->withInput();
+    //   }
+    //   return view('hello.index',['msg'=>'this is right type']);
     // }
+    public function post(HelloRequest $request){
+      return view('hello.index', ['msg'=>'this is correct type']);
+    }
 }
