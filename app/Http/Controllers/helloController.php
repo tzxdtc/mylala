@@ -27,15 +27,25 @@ class helloController extends Controller
       $rules = [
         'name' => 'required',
         'mail' =>'email',
-        'age' => 'numeric|between:0,150',
+        'age' => 'numeric',
       ];
       $messages = [
         'name.required' => '请输入名字',
         'mail.email' =>'请输入邮箱地址',
         'age.numeric' => '请输入数字',
-        'age.between' => '请输入0-150',
+        'age.min' => '请输入0以上',
+        'age.max' => '请输入200以下',
       ];
       $validator = Validator::make($request->all(),$rules,$messages);
+
+      $validator->sometimes('age','min:0',function($input){
+        return !is_int($input->age);
+      });
+
+      $validator->sometimes('age','max:200',function($input){
+        return !is_int($input->age);
+      });
+
       if ($validator->fails()){
         return redirect('/hello')
         ->withErrors($validator)
