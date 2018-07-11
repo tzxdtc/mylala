@@ -11,16 +11,12 @@ class helloController extends Controller
 {
     public function index(Request $request)
     {
-      $validator = Validator::make($request->query(),[
-        'id' => 'required',
-        'pass' => 'required',
-      ]);
-      if ($validator->fails()){
-        $msg = 'there is a problem in query';
-      }else{
-        $msg ='id and password has recepted,please type the form';
+      if ($request->hasCookie('msg')){
+        $msg = 'Cookie:' . $request->cookie('msg');
+      }else {
+        $msg = 'there is no cookie';
       }
-      return view('hello.index',['msg'=>$msg,]);
+      return view('hello.index',['msg'=> $msg]);
 }
 
     // public function post(Request $request){
@@ -53,7 +49,16 @@ class helloController extends Controller
     //   }
     //   return view('hello.index',['msg'=>'this is right type']);
     // }
-    public function post(HelloRequest $request){
-      return view('hello.index', ['msg'=>'this is correct type']);
+    public function post(Request $request){
+      $validate_rule = [
+        'msg' => 'required',
+      ];
+      $this ->validate($request,$validate_rule);
+      $msg = $request->msg;
+      $response = new Response(view('hello.index',['msg'=>
+    '[' . $msg . ']cookie has been reserved']));
+    $response->cookie('msg', $msg, 100);
+    return $response;
+
     }
 }
