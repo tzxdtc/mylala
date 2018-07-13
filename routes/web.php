@@ -53,6 +53,10 @@ Route::get('hello/add','helloController@add');
 
 Route::post('hello/add','helloController@create');
 
+Route::get('hello/edit','helloController@edit');
+
+Route::post('hello/edit','helloController@update');
+
 // Route::get('helloo', function () {
 //     return view('hello.index');
 // });
