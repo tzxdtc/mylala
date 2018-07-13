@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+ use App\Http\Middleware\HelloMiddleware;
 
 Route::get('/', function () {
     return view('welcome');
@@ -45,7 +46,12 @@ Route::get('/', function () {
 
 // Route::get('helloo/{id?}/{pass?}', 'helloController@index');
 Route::get('hello','helloController@index');
+
 Route::post('hello','helloController@post');
+
+Route::get('hello/add','helloController@add');
+
+Route::post('hello/add','helloController@create');
 
 // Route::get('helloo', function () {
 //     return view('hello.index');
