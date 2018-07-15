@@ -57,6 +57,10 @@ Route::get('hello/edit','helloController@edit');
 
 Route::post('hello/edit','helloController@update');
 
+Route::get('hello/del','helloController@del');
+
+Route::post('hello/del','helloController@remove');
+
 // Route::get('helloo', function () {
 //     return view('hello.index');
 // });

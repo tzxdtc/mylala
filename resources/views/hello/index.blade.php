@@ -9,9 +9,12 @@
 
 @section('content')
 <table>
-<tr><th>Name</th><th>Mail</th><th>Age</th></tr>
+  <tr>
+    <th>Name</th>
+    <th>Mail</th>
+    <th>Age</th>
+  </tr>
 @foreach($items as $item)
-var_dump($items);
   <tr>
     <td>{{$item->name}}</td>
     <td>{{$item->mail}}</td>
