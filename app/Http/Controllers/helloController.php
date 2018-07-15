@@ -103,8 +103,7 @@ class helloController extends Controller
       $max = $request->max;
 
       $item = DB::table('people')
-      ->whereRaw('age >= ? and age <= ?',
-      [$min,$max])->get();
+      ->orderBy('age',"asc")->get();
       return view('hello.show', ['item' => $item]);
     }
 }
