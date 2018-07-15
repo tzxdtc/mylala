@@ -61,6 +61,9 @@ Route::get('hello/del','helloController@del');
 
 Route::post('hello/del','helloController@remove');
 
+Route::get('hello/show','helloController@show');
+
+
 // Route::get('helloo', function () {
 //     return view('hello.index');
 // });
