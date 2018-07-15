@@ -65,6 +65,9 @@ Route::get('hello/show','helloController@show');
 
 Route::get('person','PersonController@index');
 
+Route::get('person/find','PersonController@find');
+
+Route::post('person/find','PersonController@search');
 // Route::get('helloo', function () {
 //     return view('hello.index');
 // });
