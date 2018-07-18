@@ -86,6 +86,11 @@ Route::post('board/add','BoardController@create');
 Route::resource('rest', 'RestappController');
 
 Route::get('hello/rest','helloController@rest');
+
+Route::get('hello/session','helloController@ses_get');
+
+Route::post('hello/session','helloController@ses_put');
+
 // Route::get('helloo', function () {
 //     return view('hello.index');
 // });
