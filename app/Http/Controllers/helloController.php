@@ -106,4 +106,8 @@ class helloController extends Controller
       ->orderBy('age',"asc")->get();
       return view('hello.show', ['item' => $item]);
     }
+
+    public function rest(Request $request){
+      return view('hello.rest');
+    }
 }
