@@ -13,7 +13,8 @@ class helloController extends Controller
 {
     public function index(Request $request)
     {
-      $items = DB::table('people')->simplePaginate(5);
+      $items = DB::table('people')->orderBy('age','asc')
+      ->simplePaginate(6);
       return view('hello.index',['items'=> $items]);
 }
 
