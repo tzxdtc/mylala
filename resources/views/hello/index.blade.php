@@ -1,21 +1,38 @@
-<html>
-<head>
-<title>Hello/Index</title>
+@extends('layouts.helloapp')
 <style>
-body {
-  font-size:16pt;
-  color:#999;
-}
-h1{
-  font-size:100pt;
-  text-align:right;
-  color:#222;
-  margin:-40px 0px -50px 0px;
-}
+  .pagination {font-size: 10pt;}
+  .pagination li {display: inline-block;}
+  tr th a:link {color:white;}
+  tr th a:visited {color:white;}
+  tr th a:hover {color:white;}
+  tr th a:active{color:white;}
 </style>
-</head>
-<body>
-  <h1>Blade/Index</h1>
-  <p>{{$msg}}</p>
-</body>
-</html>
+@section('title','Index')
+
+@section('menubar')
+  @parent
+  index page
+@endsection
+
+@section('content')
+<table>
+  <tr>
+    <th><a href="hello?sort=name">name</a></th>
+    <th><a href="hello?sort=mail">mail</a></th>
+    <th><a href="hello?sort=age">age</a></th>
+  </tr>
+@foreach($items as $item)
+  <tr>
+    <td>{{$item->name}}</td>
+    <td>{{$item->mail}}</td>
+    <td>{{$item->age}}</td>
+  </tr>
+@endforeach
+</table>
+{{$items->appends(['sort' => $sort])->links()}}
+
+@endsection
+
+@section('footer')
+copyright 2017 tuyano
+@endsection

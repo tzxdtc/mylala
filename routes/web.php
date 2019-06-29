@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+ use App\Http\Middleware\HelloMiddleware;
 
 Route::get('/', function () {
     return view('welcome');
@@ -45,7 +46,50 @@ Route::get('/', function () {
 
 // Route::get('helloo/{id?}/{pass?}', 'helloController@index');
 Route::get('hello','helloController@index');
+
 Route::post('hello','helloController@post');
+
+Route::get('hello/add','helloController@add');
+
+Route::post('hello/add','helloController@create');
+
+Route::get('hello/edit','helloController@edit');
+
+Route::post('hello/edit','helloController@update');
+
+Route::get('hello/del','helloController@del');
+
+Route::post('hello/del','helloController@remove');
+
+Route::get('hello/show','helloController@show');
+
+Route::get('person','PersonController@index');
+
+Route::get('person/find','PersonController@find');
+
+Route::post('person/find','PersonController@search');
+
+Route::get('person/add','PersonController@add');
+
+Route::post('person/add','PersonController@create');
+
+Route::get('person/edit','PersonController@edit');
+
+Route::post('person/edit','PersonController@update');
+
+Route::get('board','BoardController@index');
+
+Route::get('board/add','BoardController@add');
+
+Route::post('board/add','BoardController@create');
+
+Route::resource('rest', 'RestappController');
+
+Route::get('hello/rest','helloController@rest');
+
+Route::get('hello/session','helloController@ses_get');
+
+Route::post('hello/session','helloController@ses_put');
 
 // Route::get('helloo', function () {
 //     return view('hello.index');

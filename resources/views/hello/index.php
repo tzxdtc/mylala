@@ -16,6 +16,7 @@ h1{
 </head>
 <body>
   <h1>Hello</h1>
-  <p>this is a simple page with php-template</p>
+  <p><?php echo $msg; ?></p>
+  <p>ID=<?php echo $id;?></p>
 </body>
 </html>
